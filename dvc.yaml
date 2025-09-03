@@ -1,7 +1,7 @@
 stages:
   data_ingestion:
     cmd: python  src/data_ingestion.py
-    deps: 
+    deps:
     - src/data_ingestion.py
     params:
     - data_ingestion.test_size
@@ -38,6 +38,13 @@ stages:
     deps:
     - models/model.pkl
     - src/model_evaluation.py
-    metrics :
+    metrics:
     - reports/metrics.json
 
+params:
+- dvclive/params.yaml
+metrics:
+- dvclive/metrics.json
+plots:
+- dvclive/plots/metrics:
+    x: step
